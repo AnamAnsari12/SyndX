@@ -23,7 +23,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import userData from '../../../syndx-backend/data.json'
+import userData from '../../data.json'
 import Avatar from '@mui/material/Avatar';
 
 const StyledLink = styled(Link)({

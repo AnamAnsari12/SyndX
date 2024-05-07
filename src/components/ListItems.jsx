@@ -13,7 +13,7 @@ import Container from '@mui/material/Container'
 import { Box } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import { styled } from '@mui/material/styles';
-import userData from '../../../syndx-backend/data.json'
+import userData from '../../data.json'
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import { Link } from 'react-router-dom';
 import UserProfile from './UserProfile'

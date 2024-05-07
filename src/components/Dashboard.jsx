@@ -33,7 +33,7 @@ import DocNotification from './DocNotification'
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import userData from '../../../syndx-backend/data.json'
+import userData from '../../data.json'
 import Avatar from '@mui/material/Avatar';
 import Card from "@mui/material/Card";
 
