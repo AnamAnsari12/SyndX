@@ -22,14 +22,37 @@ import Deposits from "./Deposits";
 import Orders from "./Orders";
 import Header from "./Header";
 import { Button, Modal } from "@mui/material";
-import Calender from "./Calender";
 import { MenuContext } from "../context/NotificationContext";
 import Settings from "@mui/icons-material/Settings";
 import Setting from "./Setting";
-import Action from "./Action";
 import Notification from "./Notification";
-import Docnotification from "./Docnotification";
-import Recharch from "./Recharch";
+import Research from "./Research";
+import Action from "./Action";
+import Calender from "./Calender"
+import DocNotification from './DocNotification'
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import userData from '../../../syndx-backend/data.json'
+import Avatar from '@mui/material/Avatar';
+import Card from "@mui/material/Card";
+
+import CardContent from "@mui/material/CardContent";
+import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import DealSpace from "./DealSpace";
+
+
+// import { styled } from '@mui/material/style
+const firstLetter = userData[userData.length-1].name.replace(/\p{Emoji}/gu, '').replace(/[^A-Za-z]/g, '').charAt(0).toUpperCase();
+const Dot = styled('span')({
+  position: 'absolute',
+  bottom: 1,
+  right: 5,
+  width: 10,
+  height: 10,
+  // borderRadius: '50%',
+  // backgroundColor: 'lightgreen',
+});
 
 function Copyright(props) {
   return (
@@ -104,15 +127,25 @@ export default function Dashboard() {
 
   const { menuOpen, setMenuOpen } = React.useContext(MenuContext);
 
-  const componentMap = {
+    const componentMap = {
     calender: <Calender />,
     settings: <Setting />,
     action:  <Action/>,
     notifications:<Notification/>,
-    document:<Docnotification/>,
-    research:<Recharch/>
+    document:<DocNotification/>,
+    research:<Research/>
     // Add more menu options and their corresponding components as needed
   };
+  const Dot = styled('span')({
+    position: 'absolute',
+    bottom: 1,
+    // top:0,
+    right: 5,
+    width: 10,
+    height: 10,
+    borderRadius: '50%',
+    backgroundColor: 'lightgreen',
+  });
   const selectedComponent = componentMap[menuOpen];
 
   const toggleDrawer = () => {
@@ -155,7 +188,7 @@ export default function Dashboard() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Dashboard
+              SyndX
             </Typography>
             <Header pressHeaderIcon={() => setModalOpen(true)} />
           </Toolbar>
@@ -169,6 +202,29 @@ export default function Dashboard() {
               px: [1],
             }}
           >
+            <ListItemButton>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          width: 200,
+          height: 50,
+          marginLeft: 0,
+          // border: '1px solid black',
+          borderRadius: 0,
+        }}
+      >
+        <ListItemIcon sx={{ textAlign: 'center', marginRight: -1 }}>
+          <div style={{ position: 'relative', display: 'inline-block' }}>
+            <Avatar>{firstLetter}</Avatar>
+            <Dot />
+          </div>
+          {/* <DashboardIcon /> */}
+        </ListItemIcon>
+        <ListItemText primary={userData[userData.length-1].name} />
+      </Box>
+    </ListItemButton>
+
             <IconButton onClick={toggleDrawer}>
               <ChevronLeftIcon />
             </IconButton>
@@ -194,40 +250,7 @@ export default function Dashboard() {
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              {/* Chart */}
-              <Grid item xs={12} md={8} lg={9}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                    height: 240,
-                  }}
-                >
-                  {/* <Chart /> */}
-                </Paper>
-              </Grid>
-              {/* Recent Deposits */}
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                    height: 240,
-                  }}
-                >
-                  <Deposits />
-                </Paper>
-              </Grid>
-              {/* Recent Orders */}
-              <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-                  <Orders />
-                </Paper>
-              </Grid>
-            </Grid>
+        <DealSpace/>
             <Copyright sx={{ pt: 4 }} />
           </Container>
         </Box>
@@ -270,6 +293,7 @@ export default function Dashboard() {
             {/* <Button onClick={clicked}>Close</Button> */}
           </Box>
         </Modal>
+        
       </Box>
     </ThemeProvider>
   );

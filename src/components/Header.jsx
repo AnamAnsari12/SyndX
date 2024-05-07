@@ -107,6 +107,7 @@ export default function Header({pressHeaderIcon}) {
           <p>Calendar</p>
         </Button>
       </MenuItem>
+
       <MenuItem>
       <Button onClick={()=> {pressHeaderIcon(); setMenuOpen("action")}}>
           <Tooltip title="Action">
@@ -117,6 +118,7 @@ export default function Header({pressHeaderIcon}) {
           <p>Action</p>
         </Button>
       </MenuItem>
+
       <MenuItem>
       <Button onClick={()=> {pressHeaderIcon(); setMenuOpen("notifications")}}>
           <Tooltip title="Notifications">
@@ -129,6 +131,7 @@ export default function Header({pressHeaderIcon}) {
           <p>Notifications</p>
         </Button>
       </MenuItem>
+
       <MenuItem>
       <Button onClick={()=>  {pressHeaderIcon(); setMenuOpen("settings")}}>
           <Tooltip title="Setting">

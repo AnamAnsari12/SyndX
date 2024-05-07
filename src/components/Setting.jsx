@@ -1,11 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-function Setting(props) {
-    return (
-        <div>
-            <h1>this is settings</h1>
-        </div>
-    );
+const Setting = () => {
+  return (
+    <div>Setting</div>
+  )
 }
 
-export default Setting;
+export default Setting

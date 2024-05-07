@@ -1,11 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-function Docnotification(props) {
+const DocNotification = () => {
   return (
-    <div>
-      <h1>document notification</h1>
-    </div>
-  );
+    <div>DocNotification</div>
+  )
 }
 
-export default Docnotification;
+export default DocNotification
